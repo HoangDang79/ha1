@@ -88,6 +88,39 @@ class CalculatorTest {
     }
 
     @Test
+    @DisplayName("should display error when dividing by zero with zero")
+    void testDivisionByZeroAndZero() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("/");
+        calc.pressDigitKey(0);
+        calc.pressEqualsKey();
+
+        String expected = "Error";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+    @Test
+    @DisplayName("should display result after adding decimal number to a natural number")
+    void testPositiveAdditionDecimal() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(0);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(0);
+        calc.pressEqualsKey();
+
+        String expected = "10.5";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+    @Test
     @DisplayName("should display error when drawing the square root of a negative number")
     void testSquareRootOfNegative() {
         Calculator calc = new Calculator();
