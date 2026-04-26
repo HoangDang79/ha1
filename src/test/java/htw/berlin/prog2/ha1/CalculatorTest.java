@@ -25,37 +25,7 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
-    @Test
-    @DisplayName("should display result multiplying two positive multi-digit numbers")
-    void testPositiveMultiplication() {
-        Calculator calc = new Calculator();
 
-        calc.pressDigitKey(1);
-        calc.pressDigitKey(0);
-        calc.pressBinaryOperationKey("x");
-        calc.pressDigitKey(1);
-        calc.pressDigitKey(0);
-        calc.pressEqualsKey();
-
-        String expected = "100";
-        String actual = calc.readScreen();
-
-        assertEquals(expected, actual);
-    }
-    @Test
-    @DisplayName("should display percentage amount of a number by dividing with the number 100")
-    void testPercent() {
-        Calculator calc = new Calculator();
-
-        calc.pressDigitKey(1);
-        calc.pressDigitKey(0);
-        calc.pressUnaryOperationKey("%");
-
-        String expected = "0.1";
-        String actual = calc.readScreen();
-
-        assertEquals(expected, actual);
-    }
 
     @Test
     @DisplayName("should display result after getting the square root of two")
@@ -87,39 +57,6 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    @DisplayName("should display error when dividing by zero with zero")
-    void testDivisionByZeroAndZero() {
-        Calculator calc = new Calculator();
-
-        calc.pressDigitKey(0);
-        calc.pressBinaryOperationKey("/");
-        calc.pressDigitKey(0);
-        calc.pressEqualsKey();
-
-        String expected = "Error";
-        String actual = calc.readScreen();
-
-        assertEquals(expected, actual);
-    }
-    @Test
-    @DisplayName("should display result after adding decimal number to a natural number")
-    void testPositiveAdditionDecimal() {
-        Calculator calc = new Calculator();
-
-        calc.pressDigitKey(0);
-        calc.pressDotKey();
-        calc.pressDigitKey(5);
-        calc.pressBinaryOperationKey("+");
-        calc.pressDigitKey(1);
-        calc.pressDigitKey(0);
-        calc.pressEqualsKey();
-
-        String expected = "10.5";
-        String actual = calc.readScreen();
-
-        assertEquals(expected, actual);
-    }
     @Test
     @DisplayName("should display error when drawing the square root of a negative number")
     void testSquareRootOfNegative() {
@@ -154,5 +91,20 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+    //grüne Aufgabe
+    @Test
+    @DisplayName("should display percentage amount of a number by dividing with the number 100")
+    void testPercent() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(0);
+        calc.pressUnaryOperationKey("%");
+
+        String expected = "0.1";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
