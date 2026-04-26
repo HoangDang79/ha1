@@ -123,5 +123,25 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+    //Rote Aufgaben
+    @Test
+    @DisplayName("should display result after adding decimal number x<1 in the to a natural number")
+    void testPositiveAdditionDecimal() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(0);
+        calc.pressDotKey();
+        calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(0);
+        calc.pressEqualsKey();
+
+        String expected = "10.5";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
 
